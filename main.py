@@ -15,12 +15,12 @@ allow_methods=["*"],
 allow_headers=["*"],
 )
 
-@api.get("/documentos/")
+@app.get("/documentos/")
 async def obtener_docs():
     doc = db.obtenet_docs()
     return doc
 
-@api.post("/documentos/nuevo/")
+@app.post("/documentos/nuevo/")
 async def crear_doc(doc: db.Documento):
     ok = db.crear_docs(doc)
     if ok:
